@@ -15,7 +15,17 @@ export default function EducationSection() {
     "Differential Equations",
     "Probability and Random Processes",
     "Machine Learning",
-    "Mathematical Reasoning"
+    "Mathematical Reasoning",
+    "Principles of Electrical Engineering I",
+    "Principles of Electrical Engineering II",
+    "Digital Logic Design",
+    "Programming Methodology I",
+    "Programming Methodology II",
+    "Linear Systems and Signals",
+    "Electronic Devices and Circuits",
+    "Introduction to Computer Systems",
+    "Real Analysis I",
+    "Abstract Algebra I",
   ]
 
   const involvements = [

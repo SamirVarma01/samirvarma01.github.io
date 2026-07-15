@@ -97,7 +97,7 @@ export default function Home() {
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               <Card className="p-6 game-card bg-gradient-to-br from-purple-900/80 to-purple-700/80 backdrop-blur-sm border-2 border-purple-500">
-                <h3 className="text-xl font-bold mb-4 pixel-text">exampleproj</h3>
+                <h3 className="text-xl font-bold mb-4 pixel-text">About Me</h3>
                 <p className="mb-4">
                   Hi! I'm Samir, a senior at the Rutgers University Honors College studying Computer Engineering and Mathematics with a Physics minor.
                   I'm enthralled by the integration of machine learning in all kinds of technologies, ranging from full-stack applications to video game bots and self-driving cars! 
