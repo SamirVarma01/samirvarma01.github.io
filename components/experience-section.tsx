@@ -6,15 +6,34 @@ import { Briefcase, Calendar, MapPin, Code2 } from "lucide-react"
 export default function ExperienceSection() {
   const experiences = [
     {
+      title: "Software Engineering Intern",
+      company: "Dropbox",
+      location: "San Francisco, CA",
+      period: "May 2026 – Present",
+      description:
+        "At Dropbox, I built an automated QBR slide-generation workflow using Flask, LangGraph, Redis, and LangChain, managing service builds with Bazel and integrating live customer data and LLM-generated narratives directly into Google Slides. I also engineered a cloud data-grounding layer with Databricks, Spark SQL, and SQLAlchemy, developing three parameterized query sources for trailing-12-month YoY analytics across millions of usage events—reducing QBR preparation time from 4 hours to 10 minutes.",
+      skills: [
+        "Python",
+        "Flask",
+        "LangGraph",
+        "LangChain",
+        "Redis",
+        "Bazel",
+        "Databricks",
+        "Spark SQL",
+        "SQLAlchemy",
+      ],
+      color: "from-cyan-600 to-cyan-800",
+    },
+    {
       title: "Data Science Intern",
       company: "AT&T",
       location: "Middletown, NJ",
-      period: "June 2025 – Present",
+      period: "June 2025 – Aug. 2025",
       description:
-        "At AT&T, I contributed to the development of data-driven solutions aimed at identifying and mitigating network threats. My work focused on improving the accuracy of threat detection systems by refining machine learning models and streamlining their performance. Additionally, I led a team of five engineers in the Intern Innovation Challenge at AT&T, where I helped in the development of Paladin, a full-stack git-like application that helps monitor and automatically rollback malicious changes to secure project files.",
+        "At AT&T, I built and deployed Isolation Forest-based intrusion detection services to flag malicious IPs from high-volume network telemetry, processing 3M+ traffic records with low-latency inference. I designed modular training and evaluation pipelines with GridSearchCV parameter sweeps, increasing anomaly detection precision to 96%, and engineered a scheduled ETL workflow with Apache Airflow to orchestrate data ingestion and feature preprocessing from Azure Databricks for reliable daily model refreshes. Additionally, I led a team of five engineers in the Intern Innovation Challenge at AT&T, where I helped develop Paladin, a full-stack git-like application that monitors and automatically rolls back malicious changes to secure project files.",
       skills: [
         "Python",
-        "TensorFlow",
         "Scikit-Learn",
         "Pandas",
         "NumPy",
@@ -22,18 +41,19 @@ export default function ExperienceSection() {
         "React",
         "Chart.js",
         "Azure DataBricks",
+        "Apache Airflow",
         "GitLab",
       ],
       color: "from-blue-600 to-blue-800",
     },
     {
       title: "Software Engineering Intern",
-      company: "Stealth Mode Startup",
+      company: "Cocogen.ai",
       location: "San Francisco, CA",
       period: "Jan. 2025 – Apr. 2025",
       description:
-        "During my time at a stealth-mode startup, I worked alongside engineers from Google DeepMind to build and refine deep learning models for complex image editing tasks. I played a key role in developing automated solutions for challenges like object removal and facial feature adjustments, with a focus on improving model reliability and visual accuracy. To support scalable deployment, I helped streamline the machine learning pipeline by containerizing workflows and designing systems for efficient image data ingestion and preprocessing.",
-      skills: ["Python", "PyTorch", "OpenCV", "Flask", "BeautifulSoup", "Docker", "Git", "Google Cloud Platform"],
+        "At Cocogen.ai, I developed AI inference services using FastAPI and PyTorch, containerized with Docker and deployed on Google Cloud Platform, orchestrating computer vision workflows to power automated, user-driven image editing through scalable backend services. I also engineered distributed image processing pipelines using OpenCV, Redis, and GCS to batch-process and preprocess 5,000+ images, improving throughput and enabling reliable large-scale computer vision inference.",
+      skills: ["Python", "FastAPI", "PyTorch", "OpenCV", "Redis", "Docker", "Git", "Google Cloud Platform"],
       color: "from-purple-600 to-purple-800",
     },
     {

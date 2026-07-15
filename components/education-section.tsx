@@ -73,7 +73,7 @@ export default function EducationSection() {
                 B.S. in Computer Engineering, B.S. in Mathematics, Minor in Physics
               </p>
               <p className="text-sm text-white/80">Aug. 2023 - May 2027</p>
-              <p className="text-sm font-semibold mt-1">GPA: 3.956/4.000</p>
+              <p className="text-sm font-semibold mt-1">GPA: 3.934/4.000</p>
             </div>
 
             <div>

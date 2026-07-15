@@ -22,6 +22,21 @@ export default function ProjectsSection() {
       github: "https://github.com/SamirVarma01/NexusML",
     },
     {
+      title: "PokéChat",
+      description:
+        "PokéChat is a full-stack competitive Pokémon team analysis website that pairs an AI-powered FastAPI backend with a Next.js frontend. I built web scraping pipelines to pull real-time strategic data from Pikalytics.com, then layered on team validation and meta trend visualization tools using Chart.js and the OpenAI API, helping players analyze team compositions, uncover strengths and weaknesses, and track competitive trends.",
+      skills: [
+        { name: "FastAPI", icon: "🟢", tier: "backend" },
+        { name: "Next.js", icon: "▲", tier: "frontend" },
+        { name: "Chart.js", icon: "📊", tier: "frontend" },
+        { name: "OpenAI API", icon: "🤖", tier: "machine learning" },
+        { name: "Web Scraping", icon: "🕸️", tier: "automation" },
+        { name: "Python", icon: "🐍", tier: "language" },
+      ],
+      color: "from-pink-600 to-pink-800",
+      github: "https://github.com/SamirVarma01/PokeChat",
+    },
+    {
       title: "NextLevel",
       description:
         "I created a social platform focused on video game reviews, offering users the ability to browse, post, and engage with content tied to a vast catalog of titles. The site featured account management, interactive feedback systems, and automatic image processing to enhance user experience. By connecting to a major gaming database, I ensured comprehensive game coverage while building a scalable infrastructure to support a growing community. The site currently has over 100 users and counting!",
