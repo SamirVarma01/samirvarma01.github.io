@@ -5,6 +5,7 @@ import { Menu } from "lucide-react"
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
+import { withBasePath } from "@/lib/utils"
 
 interface NavbarProps {
   activeSection: string
@@ -27,7 +28,7 @@ export default function Navbar({ activeSection, onNavigate }: NavbarProps) {
       <div className="h-16 max-w-6xl mx-auto px-6 flex items-center justify-between">
         <div className="flex items-center gap-3">
           <Image
-            src="/myphoto.png"
+            src={withBasePath("/myphoto.png")}
             alt="Samir Varma"
             width={32}
             height={32}
@@ -59,7 +60,7 @@ export default function Navbar({ activeSection, onNavigate }: NavbarProps) {
           </nav>
 
           <a
-            href="/resume.pdf"
+            href={withBasePath("/resume.pdf")}
             target="_blank"
             rel="noopener noreferrer"
             className="hidden md:inline-flex"
@@ -90,7 +91,7 @@ export default function Navbar({ activeSection, onNavigate }: NavbarProps) {
                     {item.label}
                   </Button>
                 ))}
-                <a href="/resume.pdf" target="_blank" rel="noopener noreferrer" className="mt-2">
+                <a href={withBasePath("/resume.pdf")} target="_blank" rel="noopener noreferrer" className="mt-2">
                   <Button variant="outline" className="w-full justify-start">
                     Resume
                   </Button>

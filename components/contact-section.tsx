@@ -2,6 +2,7 @@
 
 import { useState } from "react"
 import { Check, Copy, Download, Github, Linkedin } from "lucide-react"
+import { withBasePath } from "@/lib/utils"
 
 export default function ContactSection() {
   const [copied, setCopied] = useState(false)
@@ -39,7 +40,7 @@ export default function ContactSection() {
           <span>{copied ? "Copied to clipboard" : email}</span>
         </button>
         <a
-          href="/resume.pdf"
+          href={withBasePath("/resume.pdf")}
           target="_blank"
           rel="noopener noreferrer"
           className="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-lg bg-primary text-primary-foreground text-sm font-medium hover:bg-primary/90 transition-colors shadow-sm"
