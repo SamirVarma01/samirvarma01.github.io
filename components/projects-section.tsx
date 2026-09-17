@@ -1,235 +1,112 @@
-"use client"
-import { motion } from "framer-motion"
-import { Card } from "@/components/ui/card"
-import { Code, ExternalLink, Github, Cpu } from "lucide-react"
-import { Button } from "@/components/ui/button"
+import { ArrowUpRight, ExternalLink, Github } from "lucide-react"
+
+const projects = [
+  {
+    title: "NexusML",
+    tags: ["ML Infrastructure", "Go", "FastAPI"],
+    description:
+      "Two-plane ML infrastructure platform combining Git-integrated model versioning with cloud storage (S3/GCS) and a high-performance inference stack — a Go proxy with dynamic request batching in front of a Python FastAPI model server. Lets data scientists track, deploy, and serve models reproducibly with low-latency prediction.",
+    stack: ["Go", "Python", "Docker", "AWS S3", "GCP", "FastAPI"],
+    github: "https://github.com/SamirVarma01/NexusML",
+  },
+  {
+    title: "PokéChat",
+    tags: ["Full-Stack", "AI"],
+    description:
+      "Competitive team-analysis web app pairing an AI-powered FastAPI backend with a Next.js frontend. Built scraping pipelines for real-time strategic data, then layered on team validation and meta-trend visualization using Chart.js and the OpenAI API to help users evaluate compositions and track competitive trends.",
+    stack: ["FastAPI", "Next.js", "Chart.js", "OpenAI API", "Python"],
+    github: "https://github.com/SamirVarma01/PokeChat",
+  },
+  {
+    title: "NextLevel",
+    tags: ["Full-Stack", "Community Platform"],
+    description:
+      "Social platform for game reviews with account management, interactive feedback, and automatic image processing. Integrated with a large external game database for catalog coverage, with infrastructure built to scale alongside a growing user base — currently 100+ active users.",
+    stack: ["Node.js", "MongoDB", "React", "TypeScript", "AWS Lambda", "Next.js"],
+    github: "https://github.com/SamirVarma01/NextLevel",
+    demo: "https://next-level-eight-zeta.vercel.app/",
+  },
+  {
+    title: "Paladin",
+    tags: ["Security", "AT&T Internship"],
+    description:
+      "Security-focused alert system for monitoring and protecting IoT infrastructure at large-scale events, built during AT&T's TDP Intern Innovation Challenge. Detects unauthorized changes to critical system files and automatically rolls them back, integrating with AT&T's Dynamic Defense framework to flag suspicious network activity. Led as primary backend developer and team manager for a team of five engineers.",
+    stack: ["Flask", "MySQL", "React", "Tailwind CSS", "Next.js"],
+  },
+  {
+    title: "TF-Trades",
+    tags: ["Marketplace", "Automation"],
+    description:
+      "Dynamic marketplace platform for a video game's in-game item economy, combining automated trade tracking with a user-facing interface. Integrated data from multiple trading platforms and adapted a custom bot to identify and execute profitable trades in real time, with a frontend surfacing historical pricing trends.",
+    stack: ["Go", "PostgreSQL", "React", "Next.js", "TypeScript", "Python", "Selenium"],
+    github: "https://github.com/SamirVarma01/TF-Trades",
+  },
+  {
+    title: "Game-Theoretic Battle Agent",
+    tags: ["Applied Game Theory", "Reinforcement Learning"],
+    description:
+      "AI agent applying game theory to real-time strategic decision-making, competing against human players on an online platform. Combined probabilistic modeling with state analysis to evaluate possible actions under uncertainty, alongside a companion tool for visualizing and refining performance over time.",
+    stack: ["C++", "Python", "C#", "Scikit-Learn", "WebSockets", "NumPy"],
+    github: "https://github.com/SamirVarma01/Game-Theory-in-Pokemon",
+  },
+]
 
 export default function ProjectsSection() {
-  const projects = [
-    {
-      title: "NexusML",
-      description:
-        "NexusML is a two-plane ML infrastructure platform that combines Git-integrated model versioning with cloud storage (S3/GCS) and a high-performance inference stack featuring a Go proxy with dynamic request batching and a Python FastAPI model server. This setup allows data scientists to seamlessly track, deploy, and serve machine learning models in production environments. By leveraging Git for version control, NexusML ensures reproducibility and collaboration, while the cloud storage integration provides scalable and reliable data management. The inference stack is optimized for low-latency predictions, making it suitable for real-time applications.",
-      skills: [
-        { name: "Go", icon: "🐹", tier: "language" },
-        { name: "Python", icon: "🐍", tier: "language" },
-        { name: "Docker", icon: "🐳", tier: "containerization" },
-        { name: "AWS S3", icon: "☁️", tier: "cloud" },
-        { name: "GCP", icon: "☁️", tier: "cloud" },
-        { name: "FastAPI", icon: "🟢", tier: "backend" },
-      ],
-      color: "from-red-600 to-red-800",
-      github: "https://github.com/SamirVarma01/NexusML",
-    },
-    {
-      title: "PokéChat",
-      description:
-        "PokéChat is a full-stack competitive Pokémon team analysis website that pairs an AI-powered FastAPI backend with a Next.js frontend. I built web scraping pipelines to pull real-time strategic data from Pikalytics.com, then layered on team validation and meta trend visualization tools using Chart.js and the OpenAI API, helping players analyze team compositions, uncover strengths and weaknesses, and track competitive trends.",
-      skills: [
-        { name: "FastAPI", icon: "🟢", tier: "backend" },
-        { name: "Next.js", icon: "▲", tier: "frontend" },
-        { name: "Chart.js", icon: "📊", tier: "frontend" },
-        { name: "OpenAI API", icon: "🤖", tier: "machine learning" },
-        { name: "Web Scraping", icon: "🕸️", tier: "automation" },
-        { name: "Python", icon: "🐍", tier: "language" },
-      ],
-      color: "from-pink-600 to-pink-800",
-      github: "https://github.com/SamirVarma01/PokeChat",
-    },
-    {
-      title: "NextLevel",
-      description:
-        "I created a social platform focused on video game reviews, offering users the ability to browse, post, and engage with content tied to a vast catalog of titles. The site featured account management, interactive feedback systems, and automatic image processing to enhance user experience. By connecting to a major gaming database, I ensured comprehensive game coverage while building a scalable infrastructure to support a growing community. The site currently has over 100 users and counting!",
-      skills: [
-        { name: "Node.js", icon: "🟢", tier: "backend" },
-        { name: "MongoDB", icon: "🍃", tier: "database" },
-        { name: "React", icon: "⚛️", tier: "frontend" },
-        { name: "TypeScript", icon: "📘", tier: "language" },
-        { name: "AWS Lambda", icon: "☁️", tier: "cloud" },
-        { name: "Next.js", icon: "▲", tier: "frontend" },
-      ],
-      color: "from-green-600 to-green-800",
-      github: "https://github.com/SamirVarma01/NextLevel",
-      demo: "https://next-level-eight-zeta.vercel.app/"
-    },
-    {
-      title: "Paladin",
-      description:
-        "(Created as part of AT&T internship, unable to open-source code) Paladin is a security-focused alert system designed to monitor and protect IoT infrastructure at large-scale events. Built during AT&T’s TDP Intern Innovation Challenge, the platform detects unauthorized changes to critical system files on connected devices—such as executables and configurations—and rolls them back automatically to minimize risk. By integrating with AT&T’s Dynamic Defense framework, it also monitors for suspicious network activity, offering a comprehensive defense against cyber threats. I led the project as both the primary backend developer and team manager, collaborating closely with four engineers to bring the system to life.",
-      skills: [
-        { name: "Flask", icon: "⚗️", tier: "backend" },
-        { name: "MySQL", icon: "🐬", tier: "database" },
-        { name: "Git", icon: "🐙", tier: "tool" },
-        { name: "Watchdog", icon: "👀", tier: "tool" },
-        { name: "React", icon: "⚛️", tier: "frontend" },
-        { name: "Tailwind CSS", icon: "🎨", tier: "styling" },
-        { name: "Next.js", icon: "▲", tier: "frontend" },
-      ],
-      color: "from-blue-600 to-blue-800",
-    },
-    {
-      title: "TF-Trades",
-      description:
-        "I built a dynamic marketplace platform centered around Team Fortress 2’s in-game economy, combining automated trade tracking with a user-friendly interface. The project involved integrating data from multiple trading platforms and adapting a custom bot to identify and execute profitable item swaps in real time. Alongside backend data handling, I designed the frontend to make historical pricing trends easily accessible, enabling users to explore long-term market behavior and uncover trading insights.",
-      skills: [
-        { name: "Go", icon: "🐹", tier: "backend" },
-        { name: "PostgreSQL", icon: "🐘", tier: "database" },
-        { name: "React", icon: "⚛️", tier: "frontend" },
-        { name: "Next.js", icon: "▲", tier: "frontend" },
-        { name: "TypeScript", icon: "📘", tier: "language" },
-        { name: "Tailwind CSS", icon: "🎨", tier: "styling" },
-        { name: "Python", icon: "🐍", tier: "backend" },
-        { name: "Selenium", icon: "🤖", tier: "automation" },
-      ],
-      color: "from-orange-600 to-orange-800",
-      github: "https://github.com/SamirVarma01/TF-Trades",
-    },
-    {
-      title: "Game-Theoretic Pokémon Battle Bot",
-      description:
-        "I built an AI agent that applies game theory to real-time Pokémon battles, using strategic decision-making to compete effectively against human players on an online platform. The bot combined probabilistic modeling with battle state analysis to evaluate possible moves and select optimal actions under uncertainty. To support this, I created a companion tool that visualized key performance metrics and helped refine the bot’s behavior over time.",
-      skills: [
-        { name: "C++", icon: "⚡", tier: "language" },
-        { name: "Python", icon: "🐍", tier: "language" },
-        { name: "C#", icon: "🔷", tier: "language" },
-        { name: "Scikit-Learn", icon: "🔢", tier: "machine learning" },
-        { name: "WebSockets", icon: "🔌", tier: "networking" },
-        { name: "NumPy", icon: "🔢", tier: "math" },
-      ],
-      color: "from-purple-600 to-purple-800",
-      github: "https://github.com/SamirVarma01/Game-Theory-in-Pokemon",
-    },
-    {
-      title: "Mortal KomBot",
-      description:
-        "I designed an AI agent capable of learning to play Mortal Kombat through reinforcement learning, training it to make tactical decisions in both aggressive and defensive gameplay scenarios. By experimenting with different learning strategies for discrete and continuous actions, I was able to guide the agent toward more nuanced combat behavior. Through iterative training and reward tuning, the agent steadily improved and became highly competitive against in-game opponents.",
-      skills: [
-        { name: "Python", icon: "🐍", tier: "language" },
-        { name: "PyTorch", icon: "🔥", tier: "machine learning" },
-        { name: "Stable-Baselines3", icon: "🤖", tier: "machine learning" },
-        { name: "NumPy", icon: "🔢", tier: "math" },
-        { name: "Matplotlib", icon: "📊", tier: "math" },
-        { name: "OpenAI Gym", icon: "🏋️", tier: "machine learning" },
-      ],
-      color: "from-yellow-600 to-yellow-800",
-      github: "https://github.com/SamirVarma01/Mortal-KomBot", // placeholder link
-    },
-  ]
-
-  const getTierColor = (tier: string) => {
-    switch (tier) {
-      case "frontend":
-        return "from-cyan-400 to-blue-500"
-      case "backend":
-        return "from-green-400 to-emerald-500"
-      case "database":
-        return "from-purple-400 to-violet-500"
-      case "language":
-        return "from-orange-400 to-red-500"
-      case "cloud":
-        return "from-yellow-400 to-amber-500"
-      case "styling":
-        return "from-pink-400 to-rose-500"
-      case "automation":
-        return "from-indigo-400 to-purple-500"
-      case "math":
-        return "from-teal-400 to-cyan-500"
-      case "networking":
-        return "from-black-400 to-grey-500"
-      default:
-        return "from-blue-400 to-cyan-600"
-    }
-  }
-
-  const container = {
-    hidden: { opacity: 0 },
-    show: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.2,
-      },
-    },
-  }
-
-  const item = {
-    hidden: { opacity: 0, y: 20 },
-    show: { opacity: 1, y: 0 },
-  }
-
   return (
-    <motion.div
-      initial={{ opacity: 0 }}
-      whileInView={{ opacity: 1 }}
-      transition={{ duration: 0.5 }}
-      viewport={{ once: true }}
-    >
-      <h2 className="text-3xl font-bold mb-8 text-center pixel-text">
-        <Code className="inline-block mr-2" /> Projects
-      </h2>
+    <div className="flex flex-col gap-10">
+      <div className="flex flex-col md:flex-row md:items-baseline justify-between gap-2 pb-2">
+        <div className="flex items-center gap-2">
+          <span className="text-xs font-mono text-secondary font-medium tracking-wide">02</span>
+          <span className="text-border font-mono text-xs">/</span>
+          <h2 className="text-lg font-medium text-foreground tracking-tight uppercase">Selected Work</h2>
+        </div>
+        <span className="text-xs font-mono text-muted-foreground">{projects.length} projects</span>
+      </div>
 
-      <motion.div
-        className="flex overflow-x-auto space-x-6 pb-4"
-        variants={container}
-        initial="hidden"
-        whileInView="show"
-        viewport={{ once: true }}
-      >
-        {projects.map((project, index) => (
-          <motion.div key={index} variants={item} className="min-w-[350px] max-w-xs flex-shrink-0">
-            <Card
-              className={`p-6 h-full bg-gradient-to-br ${project.color} text-white border-2 border-white/20 game-card overflow-hidden relative`}
-            >
-
-              <h3 className="text-xl font-bold mb-2 pixel-text">{project.title}</h3>
-              <p className="mb-6 text-sm">{project.description}</p>
-
-              {/* Tech Stack as Hexagonal Grid */}
-              <div className="mb-6">
-                <h4 className="font-semibold mb-4 flex items-center">
-                  <Cpu className="h-4 w-4 mr-2" />
-                  Technology Stack
-                </h4>
-
-                <div className="grid grid-cols-2 gap-3">
-                  {project.skills.map((skill, skillIndex) => (
-                    <motion.div
-                      key={skill.name}
-                      className={`relative p-3 rounded-lg bg-gradient-to-r ${getTierColor(skill.tier)} text-white shadow-lg`}
-                      initial={{ opacity: 0, x: -20 }}
-                      whileInView={{ opacity: 1, x: 0 }}
-                      transition={{ delay: skillIndex * 0.1 }}
-                      whileHover={{ scale: 1.05, rotate: 1 }}
-                      style={{
-                        clipPath:
-                          skillIndex % 2 === 0
-                            ? "polygon(0% 0%, 90% 0%, 100% 100%, 10% 100%)"
-                            : "polygon(10% 0%, 100% 0%, 90% 100%, 0% 100%)",
-                      }}
-                    >
-                      <div className="flex items-center space-x-2">
-                        <span className="text-lg">{skill.icon}</span>
-                        <div>
-                          <div className="text-xs font-bold">{skill.name}</div>
-                          <div className="text-xs opacity-80 capitalize">{skill.tier}</div>
-                        </div>
-                      </div>
-                    </motion.div>
-                  ))}
-                </div>
+      <div className="flex flex-col gap-6">
+        {projects.map((project) => (
+          <article
+            key={project.title}
+            className="w-full bg-card border border-border rounded-xl p-6 lg:p-8 shadow-sm card-hover"
+          >
+            <div className="flex flex-col gap-4">
+              <div className="flex flex-wrap gap-1.5">
+                {project.tags.map((tag) => (
+                  <span
+                    key={tag}
+                    className="px-2.5 py-1 rounded-full bg-muted text-muted-foreground font-mono text-[11px]"
+                  >
+                    {tag}
+                  </span>
+                ))}
               </div>
 
-              <div className="flex space-x-2 mt-auto">
+              <h3 className="text-xl font-semibold text-foreground tracking-tight">{project.title}</h3>
+
+              <p className="text-sm text-muted-foreground leading-relaxed max-w-3xl">{project.description}</p>
+
+              <div className="flex flex-wrap gap-1.5 pt-1">
+                {project.stack.map((tech) => (
+                  <span
+                    key={tech}
+                    className="px-2 py-0.5 rounded border border-border text-xs text-foreground font-mono"
+                  >
+                    {tech}
+                  </span>
+                ))}
+              </div>
+
+              <div className="flex items-center gap-4 pt-2">
                 {project.github && (
                   <a
                     href={project.github}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-block"
+                    className="inline-flex items-center gap-1.5 text-sm font-medium text-foreground hover:text-secondary transition-colors group"
                   >
-                    <Button variant="outline" size="sm" className="bg-white/10 hover:bg-white/20 border-white/30">
-                      <Github className="h-4 w-4 mr-1" />
-                      Code
-                    </Button>
+                    <Github className="h-4 w-4" />
+                    Code
+                    <ArrowUpRight className="h-3.5 w-3.5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
                   </a>
                 )}
                 {project.demo && (
@@ -237,19 +114,18 @@ export default function ProjectsSection() {
                     href={project.demo}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-block"
+                    className="inline-flex items-center gap-1.5 text-sm font-medium text-foreground hover:text-secondary transition-colors group"
                   >
-                    <Button variant="outline" size="sm" className="bg-white/10 hover:bg-white/20 border-white/30">
-                      <ExternalLink className="h-4 w-4 mr-1" />
-                      Demo
-                    </Button>
+                    <ExternalLink className="h-4 w-4" />
+                    Live Demo
+                    <ArrowUpRight className="h-3.5 w-3.5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
                   </a>
                 )}
               </div>
-            </Card>
-          </motion.div>
+            </div>
+          </article>
         ))}
-      </motion.div>
-    </motion.div>
+      </div>
+    </div>
   )
 }

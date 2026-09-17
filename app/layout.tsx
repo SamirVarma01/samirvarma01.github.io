@@ -1,26 +1,23 @@
 import type React from "react"
 import type { Metadata } from "next"
-import { Mona_Sans as FontSans } from "next/font/google"
-import { Press_Start_2P } from "next/font/google"
+import { Geist, Geist_Mono } from "next/font/google"
 import { cn } from "@/lib/utils"
-import { ThemeProvider } from "@/components/theme-provider"
 import "./globals.css"
 
-const fontSans = FontSans({
+const fontSans = Geist({
   subsets: ["latin"],
   variable: "--font-sans",
 })
 
-const pixelFont = Press_Start_2P({
-  weight: "400",
+const fontMono = Geist_Mono({
   subsets: ["latin"],
-  variable: "--font-pixel",
+  variable: "--font-mono",
 })
 
 export const metadata: Metadata = {
-  title: "Samir Varma | Portfolio",
-  description: "Interactive game-themed portfolio of Samir Varma",
-    generator: 'v0.dev'
+  title: "Samir Varma | Software Engineer",
+  description:
+    "Portfolio of Samir Varma — Computer Engineering & Mathematics student, software engineer focused on backend systems, ML infrastructure, and full-stack development.",
 }
 
 export default function RootLayout({
@@ -29,11 +26,9 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
-      <body className={cn("min-h-screen bg-background font-sans antialiased", fontSans.variable, pixelFont.variable)}>
-        <ThemeProvider attribute="class" defaultTheme="dark" enableSystem disableTransitionOnChange>
-          {children}
-        </ThemeProvider>
+    <html lang="en">
+      <body className={cn("min-h-screen bg-background font-sans antialiased", fontSans.variable, fontMono.variable)}>
+        {children}
       </body>
     </html>
   )

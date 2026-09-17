@@ -1,175 +1,132 @@
-"use client"
+import { GraduationCap, Users } from "lucide-react"
 
-import { motion } from "framer-motion"
-import { Card } from "@/components/ui/card"
-import { BookOpen, GraduationCap, Users } from "lucide-react"
+const courses = [
+  "Data Structures and Algorithms",
+  "Computer Architecture",
+  "Database Management",
+  "Software Engineering",
+  "Linear Algebra",
+  "Multivariable Calculus",
+  "Differential Equations",
+  "Probability and Random Processes",
+  "Machine Learning",
+  "Distributed Deep Learning Systems",
+  "Mathematical Reasoning",
+  "Principles of Electrical Engineering I",
+  "Principles of Electrical Engineering II",
+  "Digital Logic Design",
+  "Programming Methodology I",
+  "Programming Methodology II",
+  "Linear Systems and Signals",
+  "Electronic Devices and Circuits",
+  "Introduction to Computer Systems",
+  "Real Analysis I",
+  "Abstract Algebra I",
+]
+
+const involvements = [
+  "IEEE Honors Society",
+  "Engineering Honors Academy",
+  "Quantitative Finance Club",
+  "Data Science Club",
+  "Book Club",
+]
+
+const leadership = [
+  {
+    title: "Head of Event Organization",
+    organization: "Engineering Honors Academy Events Committee",
+    period: "Jan. 2024 – Present",
+    description:
+      "Spearheaded professional events, fostering an inclusive environment for 250+ engineering honors academy scholars.",
+  },
+  {
+    title: "Discussion Group Leader",
+    organization: "Rutgers Engineers Assessing Literature",
+    period: "Feb. 2024 – Present",
+    description:
+      "Led biweekly meetings with honors engineering scholars to collaboratively discuss literary works, including research papers and novels.",
+  },
+]
 
 export default function EducationSection() {
-  const courses = [
-    "Data Structures and Algorithms",
-    "Computer Architecture",
-    "Database Management",
-    "Software Engineering",
-    "Linear Algebra",
-    "Multivariable Calculus",
-    "Differential Equations",
-    "Probability and Random Processes",
-    "Machine Learning",
-    "Mathematical Reasoning",
-    "Principles of Electrical Engineering I",
-    "Principles of Electrical Engineering II",
-    "Digital Logic Design",
-    "Programming Methodology I",
-    "Programming Methodology II",
-    "Linear Systems and Signals",
-    "Electronic Devices and Circuits",
-    "Introduction to Computer Systems",
-    "Real Analysis I",
-    "Abstract Algebra I",
-  ]
-
-  const involvements = [
-    "IEEE Honors Society",
-    "Engineering Honors Academy",
-    "Quantitative Finance Club",
-    "Data Science Club",
-    "Book Club",
-  ]
-
-  const leadership = [
-    {
-      title: "Head of Event Organization",
-      organization: "Engineering Honors Academy Events Committee",
-      period: "Jan. 2024 - Present",
-      description:
-        "Spearheaded various professional events, fostering an inclusive environment for 250+ engineering honors academy scholars",
-    },
-    {
-      title: "Discussion Group Leader",
-      organization: "Rutgers Engineers Assessing Literature",
-      period: "Feb. 2024 - Present",
-      description:
-        "Led biweekly meetings with honors engineering scholars to collaboratively discuss literary works, such as research papers and novels",
-    },
-  ]
-
   return (
-    <motion.div
-      initial={{ opacity: 0 }}
-      whileInView={{ opacity: 1 }}
-      transition={{ duration: 0.5 }}
-      viewport={{ once: true }}
-    >
-      <h2 className="text-3xl font-bold mb-8 text-center pixel-text">
-        <BookOpen className="inline-block mr-2" /> Education & Leadership
-      </h2>
-
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
-        <motion.div
-          initial={{ opacity: 0, x: -50 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.5 }}
-          viewport={{ once: true }}
-        >
-          <Card className="p-6 h-full bg-gradient-to-br from-blue-600 to-blue-800 text-white border-2 border-white/20 game-card">
-            <div className="flex items-center mb-4">
-              <GraduationCap className="h-6 w-6 mr-2" />
-              <h3 className="text-xl font-bold pixel-text">Education</h3>
-            </div>
-
-            <div className="mb-6">
-              <h4 className="font-bold">Rutgers University, New Brunswick - Honors College</h4>
-              <p className="text-sm text-white/80">
-                B.S. in Computer Engineering, B.S. in Mathematics, Minor in Physics
-              </p>
-              <p className="text-sm text-white/80">Aug. 2023 - May 2027</p>
-              <p className="text-sm font-semibold mt-1">GPA: 3.934/4.000</p>
-            </div>
-
-            <div>
-              <h4 className="font-bold mb-3">Relevant Coursework</h4>
-              <div className="grid grid-cols-2 gap-2">
-                {courses.map((course, index) => (
-                  <motion.div
-                    key={course}
-                    className="p-2 bg-black/30 backdrop-blur-sm border border-white/20 rounded text-xs text-center"
-                    initial={{ opacity: 0, scale: 0.9 }}
-                    whileInView={{ opacity: 1, scale: 1 }}
-                    transition={{ delay: index * 0.05 }}
-                    whileHover={{ scale: 1.02, backgroundColor: "rgba(255,255,255,0.1)" }}
-                  >
-                    {course}
-                  </motion.div>
-                ))}
-              </div>
-            </div>
-          </Card>
-        </motion.div>
-
-        <motion.div
-          initial={{ opacity: 0, x: 50 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.5 }}
-          viewport={{ once: true }}
-        >
-          <Card className="p-6 h-full bg-gradient-to-br from-purple-600 to-purple-800 text-white border-2 border-white/20 game-card">
-            <div className="flex items-center mb-4">
-              <Users className="h-6 w-6 mr-2" />
-              <h3 className="text-xl font-bold pixel-text">Involvement</h3>
-            </div>
-
-            <div className="mb-6">
-              <h4 className="font-bold mb-3">Campus Organizations</h4>
-              <div className="space-y-2">
-                {involvements.map((involvement, index) => (
-                  <motion.div
-                    key={involvement}
-                    className="p-2 bg-black/30 backdrop-blur-sm border border-white/20 rounded text-sm"
-                    initial={{ opacity: 0, x: -20 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    transition={{ delay: index * 0.1 }}
-                    whileHover={{ scale: 1.02, backgroundColor: "rgba(255,255,255,0.1)" }}
-                  >
-                    {involvement}
-                  </motion.div>
-                ))}
-              </div>
-            </div>
-
-            <div>
-              <h4 className="font-bold mb-3">Leadership Roles</h4>
-              <div className="space-y-4">
-                {leadership.map((role, index) => (
-                  <motion.div
-                    key={index}
-                    className="border-l-4 border-yellow-400 pl-4 bg-black/20 p-3 rounded-r-lg"
-                    initial={{ opacity: 0, x: -20 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    transition={{ delay: index * 0.2 }}
-                  >
-                    <h5 className="font-bold text-yellow-300">{role.title}</h5>
-                    <p className="text-sm text-white/80">{role.organization}</p>
-                    <p className="text-xs text-white/70">{role.period}</p>
-                    <p className="text-sm mt-2">{role.description}</p>
-                  </motion.div>
-                ))}
-              </div>
-            </div>
-          </Card>
-        </motion.div>
+    <div className="flex flex-col gap-10">
+      <div className="flex items-center gap-2 pb-2">
+        <span className="text-xs font-mono text-secondary font-medium tracking-wide">03</span>
+        <span className="text-border font-mono text-xs">/</span>
+        <h2 className="text-lg font-medium text-foreground tracking-tight uppercase">Education</h2>
       </div>
 
-      <motion.div
-        initial={{ scale: 0 }}
-        whileInView={{ scale: 1 }}
-        transition={{ type: "spring", stiffness: 260, damping: 20 }}
-        viewport={{ once: true }}
-        className="flex justify-center"
-      >
-        <div className="bg-gradient-to-r from-yellow-400 to-yellow-600 p-4 rounded-lg pixel-borders inline-block">
-          <p className="text-black font-bold pixel-text">ACHIEVEMENT UNLOCKED: ACADEMIC EXCELLENCE</p>
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+        <div className="lg:col-span-7 p-6 bg-card border border-border rounded-xl h-full">
+          <div className="flex items-center gap-2 mb-4">
+            <GraduationCap className="h-5 w-5 text-secondary" />
+            <h3 className="text-base font-semibold text-foreground">Rutgers University, New Brunswick</h3>
+          </div>
+
+          <div className="mb-6">
+            <p className="text-sm text-muted-foreground">Honors College</p>
+            <p className="text-sm text-muted-foreground">
+              B.S. in Computer Engineering, B.S. in Mathematics, Minor in Physics
+            </p>
+            <p className="text-sm text-muted-foreground">Aug. 2023 – May 2027</p>
+            <p className="text-sm font-medium text-foreground mt-1">GPA: 3.936 / 4.000</p>
+          </div>
+
+          <div>
+            <span className="text-xs font-mono uppercase text-muted-foreground tracking-wider block mb-3">
+              Relevant Coursework
+            </span>
+            <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
+              {courses.map((course) => (
+                <div
+                  key={course}
+                  className="px-2.5 py-2 rounded-lg bg-muted text-xs text-foreground text-center leading-snug flex items-center justify-center"
+                >
+                  {course}
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
-      </motion.div>
-    </motion.div>
+
+        <div className="lg:col-span-5 p-6 bg-card border border-border rounded-xl h-full">
+          <div className="flex items-center gap-2 mb-4">
+            <Users className="h-5 w-5 text-secondary" />
+            <h3 className="text-base font-semibold text-foreground">Involvement</h3>
+          </div>
+
+          <div className="mb-6">
+            <span className="text-xs font-mono uppercase text-muted-foreground tracking-wider block mb-3">
+              Organizations
+            </span>
+            <div className="flex flex-col gap-2">
+              {involvements.map((involvement) => (
+                <div key={involvement} className="px-3 py-2 bg-muted rounded-lg text-sm text-foreground">
+                  {involvement}
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div>
+            <span className="text-xs font-mono uppercase text-muted-foreground tracking-wider block mb-3">
+              Leadership
+            </span>
+            <div className="flex flex-col gap-4">
+              {leadership.map((role) => (
+                <div key={role.title} className="border-l-2 border-secondary pl-4">
+                  <h4 className="text-sm font-semibold text-foreground">{role.title}</h4>
+                  <p className="text-xs text-muted-foreground">{role.organization}</p>
+                  <p className="text-xs text-muted-foreground">{role.period}</p>
+                  <p className="text-sm text-muted-foreground mt-1.5">{role.description}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   )
 }
