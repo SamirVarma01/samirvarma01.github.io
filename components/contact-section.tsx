@@ -17,12 +17,6 @@ export default function ContactSection() {
   return (
     <div className="w-full bg-card border border-border rounded-2xl p-8 lg:p-14 flex flex-col md:flex-row items-start md:items-center justify-between gap-8 shadow-sm">
       <div className="max-w-xl space-y-3">
-        <div className="inline-flex items-center gap-2">
-          <span className="w-2 h-2 rounded-full bg-secondary" />
-          <span className="text-xs font-mono uppercase text-muted-foreground tracking-wider">
-            Open to Summer 2027 opportunities
-          </span>
-        </div>
         <h2 className="text-2xl md:text-3xl font-semibold text-foreground tracking-tight">
           Let&apos;s talk about a role, project, or collaboration.
         </h2>
