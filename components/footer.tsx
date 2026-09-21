@@ -1,9 +1,8 @@
 export default function Footer() {
   return (
     <footer className="w-full bg-background border-t border-border">
-      <div className="max-w-6xl mx-auto px-6 py-10 flex flex-col md:flex-row items-center justify-between gap-4">
-        <span className="text-sm text-muted-foreground">© {new Date().getFullYear()} Samir Varma. All rights reserved.</span>
-        <div className="flex items-center gap-6">
+      <div className="max-w-6xl mx-auto px-6 py-10 flex items-center justify-center">
+        <div className="flex flex-wrap items-center justify-center gap-6">
           <a
             href="https://github.com/SamirVarma01"
             target="_blank"
