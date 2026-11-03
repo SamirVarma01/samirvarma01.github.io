@@ -42,29 +42,6 @@ const projects = [
     github: "https://github.com/SamirVarma01/NextLevel",
     demo: "https://next-level-eight-zeta.vercel.app/",
   },
-  {
-    title: "Paladin",
-    tags: ["Security", "AT&T Internship"],
-    description:
-      "Security-focused alert system for monitoring and protecting IoT infrastructure at large-scale events, built during AT&T's TDP Intern Innovation Challenge. Detects unauthorized changes to critical system files and automatically rolls them back, integrating with AT&T's Dynamic Defense framework to flag suspicious network activity. Led as primary backend developer and team manager for a team of five engineers.",
-    stack: ["Flask", "MySQL", "React", "Tailwind CSS", "Next.js"],
-  },
-  {
-    title: "TF-Trades",
-    tags: ["Marketplace", "Automation"],
-    description:
-      "Dynamic marketplace platform for a video game's in-game item economy, combining automated trade tracking with a user-facing interface. Integrated data from multiple trading platforms and adapted a custom bot to identify and execute profitable trades in real time, with a frontend surfacing historical pricing trends.",
-    stack: ["Go", "PostgreSQL", "React", "Next.js", "TypeScript", "Python", "Selenium"],
-    github: "https://github.com/SamirVarma01/TF-Trades",
-  },
-  {
-    title: "Game-Theoretic Battle Agent",
-    tags: ["Applied Game Theory", "Reinforcement Learning"],
-    description:
-      "AI agent applying game theory to real-time strategic decision-making, competing against human players on an online platform. Combined probabilistic modeling with state analysis to evaluate possible actions under uncertainty, alongside a companion tool for visualizing and refining performance over time.",
-    stack: ["C++", "Python", "C#", "Scikit-Learn", "WebSockets", "NumPy"],
-    github: "https://github.com/SamirVarma01/Game-Theory-in-Pokemon",
-  },
 ]
 
 export default function ProjectsSection() {
