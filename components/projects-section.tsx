@@ -2,6 +2,22 @@ import { ArrowUpRight, ExternalLink, Github } from "lucide-react"
 
 const projects = [
   {
+    title: "Distributed Task Queue & Agent Runtime",
+    tags: ["Distributed Systems", "AI Infrastructure"],
+    description:
+      "Distributed task queue built on Redis Streams and MySQL with at-least-once delivery, heartbeat-based crash recovery, exponential-backoff retries, and per-task timeouts — a chaos test that repeatedly SIGKILLs workers mid-run lost 0 of 10,000 tasks. On top of the queue sits a durable runtime for LLM tool-calling agents that checkpoints every LLM and tool call, resumes mid-run after a crash, never repeats a side-effecting tool call, and enforces token and cost budgets across Claude and OpenAI.",
+    stack: ["Python", "FastAPI", "Redis Streams", "MySQL", "Docker"],
+    github: "https://github.com/SamirVarma01/Distributed-Task-Queue",
+  },
+  {
+    title: "Distributed Pokémon RL Training",
+    tags: ["Distributed Deep Learning", "Reinforcement Learning"],
+    description:
+      "Team project for a Distributed Deep Learning course reproducing Metamon, an offline RL agent for competitive Pokémon battles, on NERSC's Perlmutter supercomputer. Trains a 15M-parameter policy with behavior cloning on Gen 1 OU human replays, then measures scaling from 1 to 4 and 8 A100 GPUs with PyTorch DDP — instrumenting per-step throughput and memory, and scoring held-out action-prediction accuracy against the paper's released checkpoint.",
+    stack: ["Python", "PyTorch", "DDP", "Slurm", "Weights & Biases"],
+    github: "https://github.com/SamirVarma01/DDLS-Pokemon-RL-Project",
+  },
+  {
     title: "NexusML",
     tags: ["ML Infrastructure", "Go", "FastAPI"],
     description:
