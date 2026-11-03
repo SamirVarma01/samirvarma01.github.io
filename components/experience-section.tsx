@@ -5,10 +5,10 @@ const experiences = [
     title: "Software Engineering Intern",
     company: "Dropbox",
     location: "San Francisco, CA",
-    period: "May 2026 – Present",
+    period: "May 2026 – Aug. 2026",
     description:
-      "Built an automated QBR slide-generation workflow using Flask, LangGraph, Redis, and LangChain, managing service builds with Bazel and integrating live customer data and LLM-generated narratives directly into Google Slides. Engineered a cloud data-grounding layer with Databricks, Spark SQL, and SQLAlchemy, developing three parameterized query sources for trailing-12-month YoY analytics across millions of usage events — reducing QBR preparation time from 4 hours to 10 minutes.",
-    skills: ["Python", "Flask", "LangGraph", "LangChain", "Redis", "Bazel", "Databricks", "Spark SQL", "SQLAlchemy"],
+      "Built an agentic Quarterly Business Review deck-generation service in Python and Flask, orchestrating LLM narrative steps with LangGraph over live customer data, with Redis-backed state and Bazel-managed service builds. Engineered a cloud data-grounding layer using Databricks SQL and SQLAlchemy with 11 parameterized query sources for trailing-12-month YoY analytics, cutting QBR drafting time by 95%. Designed a conversational editing pipeline with parallel data grounding, structured LLM outputs, schema-validated block mutations, optimistic concurrency control, and audit logging, achieving a 92% task success rate.",
+    skills: ["Python", "Flask", "LangGraph", "Redis", "Bazel", "Databricks SQL", "SQLAlchemy"],
   },
   {
     title: "Data Science Intern",
@@ -16,12 +16,12 @@ const experiences = [
     location: "Middletown, NJ",
     period: "June 2025 – Aug. 2025",
     description:
-      "Built and deployed Isolation Forest-based intrusion detection services to flag malicious IPs from high-volume network telemetry, processing 3M+ traffic records with low-latency inference. Designed modular training and evaluation pipelines with GridSearchCV parameter sweeps, increasing anomaly detection precision to 96%, and engineered a scheduled ETL workflow with Apache Airflow to orchestrate ingestion and feature preprocessing from Azure Databricks for reliable daily model refreshes. Led a team of five engineers in AT&T's Intern Innovation Challenge, building Paladin, a full-stack application that monitors and automatically rolls back malicious changes to secure project files.",
+      "Built and deployed Isolation Forest-based intrusion detection services to flag malicious IPs from high-volume network telemetry, processing 3M+ traffic records with low-latency inference. Designed modular training and evaluation pipelines with GridSearchCV parameter sweeps, increasing anomaly detection precision to 96%, and engineered a scheduled ETL workflow with Apache Airflow to orchestrate ingestion, validation, and feature preprocessing from Azure Databricks for reliable daily model refreshes. Led a team of five engineers in AT&T's Intern Innovation Challenge, building Paladin, a full-stack application that monitors and automatically rolls back malicious changes to secure project files.",
     skills: ["Python", "Scikit-Learn", "Pandas", "NumPy", "React", "Azure Databricks", "Apache Airflow", "GitLab"],
   },
   {
     title: "Software Engineering Intern",
-    company: "Cocogen.ai",
+    company: "Coco Labs",
     location: "San Francisco, CA",
     period: "Jan. 2025 – Apr. 2025",
     description:
@@ -29,13 +29,13 @@ const experiences = [
     skills: ["Python", "FastAPI", "PyTorch", "OpenCV", "Redis", "Docker", "Google Cloud Platform"],
   },
   {
-    title: "Machine Learning Researcher",
+    title: "Machine Learning Research Assistant",
     company: "CyberPhysical Intelligence Lab, Rutgers University",
     location: "Piscataway, NJ",
     period: "June 2024 – Apr. 2025",
     description:
-      "Advanced autonomous vehicle decision-making by integrating multi-agent reinforcement learning algorithms into a high-fidelity driving simulator. Implemented and fine-tuned neural network architectures for more adaptive, efficient control strategies, and led experimental comparisons between reinforcement learning approaches, contributing to more computationally efficient training pipelines.",
-    skills: ["Python", "TensorFlow", "TensorBoard", "Pandas", "Matplotlib", "Git", "Linux"],
+      "Implemented Actor–Critic reinforcement learning agents in PyTorch within the CARLA autonomous driving simulator, designing modular policy and value networks that improved average episode reward by 14%. Developed an evaluation framework that ran DQN and Actor–Critic experiments across parallel simulation runs, logging reward curves, convergence, and policy stability for reproducible comparison.",
+    skills: ["Python", "PyTorch", "CARLA", "TensorBoard", "Pandas", "Matplotlib", "Git", "Linux"],
   },
   {
     title: "Data Analyst",
