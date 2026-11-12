@@ -2,6 +2,14 @@ import { ArrowUpRight, ExternalLink, Github } from "lucide-react"
 
 const projects = [
   {
+    title: "Multi-Provider LLM Gateway",
+    tags: ["AI Infrastructure", "Distributed Systems"],
+    description:
+      "OpenAI-compatible gateway in Go that routes requests across OpenAI- and Anthropic-format providers by priority, price, or measured latency, translating between the two APIs with full streaming support. Circuit breakers fail over to a backup provider before the first byte reaches the client, a Redis Lua token bucket enforces per-key rate limits, and a reserve-then-settle Postgres ledger enforces per-key budgets. Under load, a primary-provider outage caused 0 client errors in 1,500 requests, and 20 SIGKILLs of the gateway left 0 double charges or ledger discrepancies.",
+    stack: ["Go", "PostgreSQL", "Redis", "Docker", "Prometheus"],
+    github: "https://github.com/SamirVarma01/Multi-Provider-LLM-Gateway",
+  },
+  {
     title: "Distributed Task Queue & Agent Runtime",
     tags: ["Distributed Systems", "AI Infrastructure"],
     description:
