@@ -141,3 +141,12 @@ body.crt :focus-visible {
 .skip-link:focus {
   top: 12px;
 }
+
+/* Dot-matrix display (canvas) */
+.dot-matrix {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  display: block;
+  pointer-events: none;
+}
