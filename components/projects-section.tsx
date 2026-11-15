@@ -1,6 +1,25 @@
 import { ArrowUpRight, ExternalLink, Github } from "lucide-react"
 
-const projects = [
+type Project = {
+  title: string
+  tags: string[]
+  description: string
+  stack: string[]
+  github?: string
+  demo?: string
+  status?: string
+}
+
+const projects: Project[] = [
+  {
+    title: "Deadbot",
+    status: "In Development",
+    tags: ["Discord Bot", "Data Engineering"],
+    description:
+      "Discord bot, currently in development, that helps Deadlock players find teammates. Users link and verify a Steam account, and the bot builds playstyle profiles and teammate synergy from match history — inferring premade parties from friend and back-to-back match signals and scoring each pair with a Bayesian-shrunk win rate against an expected baseline. LFG posts and /fill suggest the best-fitting server members by weighting synergy, role coverage, availability, and rank, with a reason for every pick. Deployed with Docker Compose on a 1 GB Azure VM, with scheduled syncs and a bounded Redis cache.",
+    stack: ["Python", "PostgreSQL", "Redis", "Alembic", "APScheduler", "Docker"],
+    github: "https://github.com/SamirVarma01/deadbot",
+  },
   {
     title: "Multi-Provider LLM Gateway",
     tags: ["AI Infrastructure", "Distributed Systems"],
@@ -72,6 +91,12 @@ export default function ProjectsSection() {
           >
             <div className="flex flex-col gap-4">
               <div className="flex flex-wrap gap-1.5">
+                {project.status && (
+                  <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full border border-secondary/40 bg-secondary/10 text-secondary font-mono text-[11px]">
+                    <span className="h-1.5 w-1.5 rounded-full bg-secondary animate-pulse" />
+                    {project.status}
+                  </span>
+                )}
                 {project.tags.map((tag) => (
                   <span
                     key={tag}
