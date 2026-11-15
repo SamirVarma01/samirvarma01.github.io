@@ -1,8 +1,9 @@
 import type React from "react"
 import type { Metadata } from "next"
-import { Geist, Geist_Mono } from "next/font/google"
+import { Doto, Geist, Geist_Mono } from "next/font/google"
 import { cn } from "@/lib/utils"
 import "./globals.css"
+import "./crt.css"
 
 const fontSans = Geist({
   subsets: ["latin"],
@@ -12,6 +13,11 @@ const fontSans = Geist({
 const fontMono = Geist_Mono({
   subsets: ["latin"],
   variable: "--font-mono",
+})
+
+const fontDot = Doto({
+  subsets: ["latin"],
+  variable: "--font-doto",
 })
 
 export const metadata: Metadata = {
@@ -27,7 +33,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={cn("min-h-screen bg-background font-sans antialiased", fontSans.variable, fontMono.variable)}>
+      <body className={cn("min-h-screen bg-background font-sans antialiased", fontSans.variable, fontMono.variable, fontDot.variable)}>
         {children}
       </body>
     </html>

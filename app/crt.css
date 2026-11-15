@@ -1,0 +1,143 @@
+/* ============================================================
+   CRT theme: amber phosphor on near-black.
+   Display type is Doto (dot matrix); body is Geist Mono.
+   ============================================================ */
+
+:root {
+  --crt-bg: #07080a;
+  --crt-bg-raise: #0d0f12;
+  --crt-fg: #f3e9d2;
+  --crt-dim: #9a9282;
+  --crt-faint: #5b5649;
+  --crt-line: #24221d;
+  --crt-amber: #ffb000;
+  --crt-amber-soft: rgba(255, 176, 0, 0.16);
+  --crt-glow: 0 0 12px rgba(255, 176, 0, 0.35);
+  --crt-live: #7dff9b;
+  --font-dot: var(--font-doto), ui-monospace, monospace;
+  --font-term: var(--font-mono), ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  --pad: clamp(18px, 3vw, 36px);
+}
+
+html.crt-root {
+  background: var(--crt-bg);
+  color-scheme: dark;
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html.crt-root {
+    scroll-behavior: auto;
+  }
+}
+
+body.crt {
+  margin: 0;
+  min-height: 100%;
+  background: var(--crt-bg);
+  color: var(--crt-fg);
+  font-family: var(--font-term);
+  font-size: 15px;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+}
+
+body.crt ::selection {
+  background: var(--crt-amber);
+  color: #000;
+}
+
+body.crt a {
+  color: inherit;
+}
+
+body.crt :focus-visible {
+  outline: 1px dashed var(--crt-amber);
+  outline-offset: 4px;
+}
+
+/* Screen overlay: scanlines, vignette, faint flicker */
+.crt-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  pointer-events: none;
+}
+
+.crt-overlay::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0) 0,
+    rgba(0, 0, 0, 0) 2px,
+    rgba(0, 0, 0, 0.22) 3px
+  );
+  mix-blend-mode: multiply;
+}
+
+.crt-overlay::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0) 55%, rgba(0, 0, 0, 0.55) 100%);
+  animation: crt-flicker 6s steps(1, end) infinite;
+}
+
+@keyframes crt-flicker {
+  0%, 100% { opacity: 1; }
+  47% { opacity: 0.94; }
+  48% { opacity: 1; }
+  83% { opacity: 0.97; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .crt-overlay::after {
+    animation: none;
+  }
+}
+
+/* Shared type helpers */
+.dot-type {
+  font-family: var(--font-dot);
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+.term-label {
+  font-size: 12px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--crt-dim);
+}
+
+.amber {
+  color: var(--crt-amber);
+  text-shadow: var(--crt-glow);
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+.skip-link {
+  position: fixed;
+  left: var(--pad);
+  top: -60px;
+  z-index: 100;
+  padding: 8px 12px;
+  background: var(--crt-amber);
+  color: #000 !important;
+  text-decoration: none;
+}
+
+.skip-link:focus {
+  top: 12px;
+}
