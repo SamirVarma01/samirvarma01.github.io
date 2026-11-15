@@ -1,6 +1,7 @@
 "use client"
 
 import { useCallback, useEffect, useState } from "react"
+import ContactBlock from "@/components/crt/contact-block"
 import CrtOverlay from "@/components/crt/crt-overlay"
 import DotMatrix from "@/components/crt/dot-matrix"
 import EducationBlock from "@/components/crt/education-block"
@@ -21,6 +22,7 @@ const SCENES: Record<string, DotScene> = {
   experience: faint("LOG"),
   education: faint("RU"),
   skills: faint("LS"),
+  contact: { lines: [], intensity: 0, align: "right", anchor: "middle" },
   hero: { lines: profile.name.toUpperCase().split(" "), intensity: 1, align: "left", anchor: "middle" },
 }
 
@@ -81,6 +83,10 @@ export default function Home() {
 
         <section id="skills" data-scene className="crt-section">
           <SkillsGrid />
+        </section>
+
+        <section id="contact" data-scene className="crt-section crt-contact">
+          <ContactBlock />
         </section>
       </main>
     </>

@@ -47,7 +47,7 @@ body.crt ::selection {
   color: #000;
 }
 
-body.crt a {
+:where(body.crt) a {
   color: inherit;
 }
 
@@ -985,4 +985,113 @@ body.crt :focus-visible {
   .skills-grid {
     grid-template-columns: 1fr;
   }
+}
+
+/* Contact */
+.crt-contact {
+  display: flex;
+  padding: 80px var(--pad) var(--pad);
+}
+
+.contact {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  max-width: 1180px;
+  min-height: calc(100svh - 80px - var(--pad));
+  margin: 0 auto;
+}
+
+.contact .term-label {
+  margin: 0 0 14px;
+}
+
+.contact-big {
+  margin: 0;
+  font-size: clamp(56px, 12vw, 168px);
+  line-height: 0.9;
+}
+
+.contact-big a {
+  text-decoration: none;
+  color: var(--crt-amber);
+  text-shadow: 0 0 22px rgba(255, 176, 0, 0.45);
+}
+
+.contact-big a:hover {
+  color: #ffd27a;
+}
+
+.contact-sub {
+  margin: 18px 0 32px;
+  font-size: 15px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--crt-dim);
+}
+
+.contact-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 18px 36px;
+}
+
+.contact-copy {
+  padding: 12px 16px;
+  border: 1px dashed rgba(255, 176, 0, 0.55);
+  background: rgba(7, 8, 10, 0.8);
+  color: var(--crt-fg);
+  font: inherit;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.contact-copy:hover {
+  border-style: solid;
+  color: var(--crt-amber);
+}
+
+.contact-socials {
+  display: flex;
+  gap: 26px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-size: 13px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.contact-socials a {
+  text-decoration: none;
+}
+
+.contact-socials a:hover {
+  color: var(--crt-amber);
+}
+
+.crt-footer {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  margin-top: auto;
+  padding-top: 48px;
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--crt-dim);
+}
+
+.crt-footer a {
+  text-decoration: none;
+}
+
+.crt-footer a:hover {
+  color: var(--crt-amber);
+}
+
+.contact > .term-label {
+  margin-top: auto;
 }
