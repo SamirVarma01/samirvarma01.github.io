@@ -3,6 +3,7 @@
 import { useCallback, useEffect, useState } from "react"
 import CrtOverlay from "@/components/crt/crt-overlay"
 import DotMatrix from "@/components/crt/dot-matrix"
+import ExperienceLog from "@/components/crt/experience-log"
 import Hero from "@/components/crt/hero"
 import HudHeader from "@/components/crt/hud-header"
 import MenuOverlay from "@/components/crt/menu-overlay"
@@ -15,6 +16,7 @@ const faint = (word: string): DotScene => ({ lines: [word], intensity: 0.34, ali
 
 /** What the dot-matrix display shows while each section is on screen. */
 const SCENES: Record<string, DotScene> = {
+  experience: faint("LOG"),
   hero: { lines: profile.name.toUpperCase().split(" "), intensity: 1, align: "left", anchor: "middle" },
 }
 
@@ -63,6 +65,10 @@ export default function Home() {
 
         <section id="work" data-scene className="crt-section">
           <WorkIndex onOpen={setOpenProject} onHover={setHoverProject} />
+        </section>
+
+        <section id="experience" data-scene className="crt-section">
+          <ExperienceLog />
         </section>
       </main>
     </>
