@@ -35,12 +35,3 @@
     @apply bg-background text-foreground;
   }
 }
-
-.card-hover {
-  transition: box-shadow 0.25s ease, transform 0.25s ease;
-}
-
-.card-hover:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 12px 24px -8px rgb(0 0 0 / 0.08);
-}
