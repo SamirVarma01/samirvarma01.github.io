@@ -8,9 +8,9 @@ export const profile = {
   linkedin: "https://www.linkedin.com/in/samir-varma-1a1166281/",
   location: "Monroe Township, NJ",
   school: "Rutgers University Honors College",
-  degrees: "Computer Engineering, Mathematics, and Physics",
+  degrees: "Computer Engineering and Mathematics",
   tagline: "Building reliable backend systems and ML infrastructure, from research prototype to production.",
-  bio: "Software engineer with experience across Dropbox, AT&T, and stealth startups, shipping data pipelines, inference services, and full-stack applications. Currently a senior at the Rutgers University Honors College, studying Computer Engineering and Mathematics with a minor in Physics.",
+  bio: "Software engineer with experience across Dropbox, AT&T, and stealth startups, shipping data pipelines, inference services, and full-stack applications. Currently a senior at the Rutgers University Honors College, studying Computer Engineering and Mathematics.",
   stack: "Python / TypeScript / Go / React",
 }
 
@@ -169,7 +169,7 @@ export const experiences: Experience[] = [
 export const education = {
   school: "Rutgers University, New Brunswick",
   college: "Honors College",
-  degree: "B.S. in Computer Engineering, B.S. in Mathematics, Minor in Physics",
+  degree: "B.S. in Computer Engineering, B.S. in Mathematics",
   period: "Aug. 2023 – May 2027",
   gpa: "3.936 / 4.000",
   courses: [
