@@ -1,7 +1,8 @@
 "use client"
 
-import { useEffect, useRef } from "react"
+import { useRef } from "react"
 import { profile } from "@/lib/content"
+import { useDialog } from "@/lib/use-dialog"
 import { withBasePath } from "@/lib/utils"
 
 export const NAV_ITEMS = [
@@ -15,27 +16,13 @@ export const NAV_ITEMS = [
 
 export default function MenuOverlay({ open, onClose }: { open: boolean; onClose: () => void }) {
   const closeRef = useRef<HTMLButtonElement>(null)
-
-  useEffect(() => {
-    if (!open) return
-    const opener = document.activeElement as HTMLElement | null
-    closeRef.current?.focus()
-    document.body.style.overflow = "hidden"
-    const onKey = (e: KeyboardEvent) => {
-      if (e.key === "Escape") onClose()
-    }
-    window.addEventListener("keydown", onKey)
-    return () => {
-      window.removeEventListener("keydown", onKey)
-      document.body.style.overflow = ""
-      opener?.focus()
-    }
-  }, [open, onClose])
+  const rootRef = useRef<HTMLDivElement>(null)
+  useDialog(open, onClose, closeRef, rootRef)
 
   if (!open) return null
 
   return (
-    <div className="menu" role="dialog" aria-modal="true" aria-label="Menu">
+    <div ref={rootRef} className="menu" role="dialog" aria-modal="true" aria-label="Menu">
       <button ref={closeRef} type="button" className="menu-close" onClick={onClose}>
         Close [esc]
       </button>

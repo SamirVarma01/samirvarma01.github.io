@@ -6,10 +6,12 @@ import DotMatrix from "@/components/crt/dot-matrix"
 import Hero from "@/components/crt/hero"
 import HudHeader from "@/components/crt/hud-header"
 import MenuOverlay from "@/components/crt/menu-overlay"
+import ProjectPanel from "@/components/crt/project-panel"
+import WorkIndex, { projectNumber } from "@/components/crt/work-index"
 import { profile } from "@/lib/content"
 import type { DotScene } from "@/lib/dot-engine"
 
-const faint = (word: string): DotScene => ({ lines: [word], intensity: 0.2, align: "right", anchor: "bottom" })
+const faint = (word: string): DotScene => ({ lines: [word], intensity: 0.34, align: "right", anchor: "bottom" })
 
 /** What the dot-matrix display shows while each section is on screen. */
 const SCENES: Record<string, DotScene> = {
@@ -20,6 +22,9 @@ export default function Home() {
   const [menuOpen, setMenuOpen] = useState(false)
   const [section, setSection] = useState("hero")
   const closeMenu = useCallback(() => setMenuOpen(false), [])
+  const [openProject, setOpenProject] = useState<number | null>(null)
+  const [hoverProject, setHoverProject] = useState<number | null>(null)
+  const closeProject = useCallback(() => setOpenProject(null), [])
 
   // Track which section crosses the middle of the viewport.
   useEffect(() => {
@@ -33,19 +38,31 @@ export default function Home() {
     return () => io.disconnect()
   }, [])
 
+  // A hovered or open project takes over the display with its number.
+  const focusProject = openProject ?? (section === "work" ? hoverProject : null)
+  const scene: DotScene =
+    focusProject !== null
+      ? { lines: [projectNumber(focusProject)], intensity: openProject !== null ? 0.22 : 0.34, align: "right", anchor: "middle" }
+      : (SCENES[section] ?? faint(section.toUpperCase()))
+
   return (
     <>
       <a className="skip-link" href="#work">
         Skip to projects
       </a>
-      <DotMatrix scene={SCENES[section] ?? faint(section.toUpperCase())} />
+      <DotMatrix scene={scene} />
       <CrtOverlay />
       <HudHeader onMenu={() => setMenuOpen(true)} />
       <MenuOverlay open={menuOpen} onClose={closeMenu} />
+      <ProjectPanel index={openProject} onClose={closeProject} onNavigate={setOpenProject} />
 
       <main className="crt-main">
         <section id="hero" data-scene className="crt-section crt-hero">
           <Hero />
+        </section>
+
+        <section id="work" data-scene className="crt-section">
+          <WorkIndex onOpen={setOpenProject} onHover={setHoverProject} />
         </section>
       </main>
     </>
