@@ -9,6 +9,7 @@ import Hero from "@/components/crt/hero"
 import HudHeader from "@/components/crt/hud-header"
 import MenuOverlay from "@/components/crt/menu-overlay"
 import ProjectPanel from "@/components/crt/project-panel"
+import SkillsGrid from "@/components/crt/skills-grid"
 import WorkIndex, { projectNumber } from "@/components/crt/work-index"
 import { profile } from "@/lib/content"
 import type { DotScene } from "@/lib/dot-engine"
@@ -19,6 +20,7 @@ const faint = (word: string): DotScene => ({ lines: [word], intensity: 0.34, ali
 const SCENES: Record<string, DotScene> = {
   experience: faint("LOG"),
   education: faint("RU"),
+  skills: faint("LS"),
   hero: { lines: profile.name.toUpperCase().split(" "), intensity: 1, align: "left", anchor: "middle" },
 }
 
@@ -75,6 +77,10 @@ export default function Home() {
 
         <section id="education" data-scene className="crt-section">
           <EducationBlock />
+        </section>
+
+        <section id="skills" data-scene className="crt-section">
+          <SkillsGrid />
         </section>
       </main>
     </>
