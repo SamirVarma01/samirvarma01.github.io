@@ -1,53 +1,5 @@
 import { GraduationCap, Users } from "lucide-react"
-
-const courses = [
-  "Data Structures and Algorithms",
-  "Computer Architecture",
-  "Database Management",
-  "Software Engineering",
-  "Linear Algebra",
-  "Multivariable Calculus",
-  "Differential Equations",
-  "Probability and Random Processes",
-  "Machine Learning",
-  "Distributed Deep Learning Systems",
-  "Mathematical Reasoning",
-  "Principles of Electrical Engineering I",
-  "Principles of Electrical Engineering II",
-  "Digital Logic Design",
-  "Programming Methodology I",
-  "Programming Methodology II",
-  "Linear Systems and Signals",
-  "Electronic Devices and Circuits",
-  "Introduction to Computer Systems",
-  "Real Analysis I",
-  "Abstract Algebra I",
-]
-
-const involvements = [
-  "IEEE Honors Society",
-  "Engineering Honors Academy",
-  "Quantitative Finance Club",
-  "Data Science Club",
-  "Book Club",
-]
-
-const leadership = [
-  {
-    title: "Head of Event Organization",
-    organization: "Engineering Honors Academy Events Committee",
-    period: "Jan. 2024 – Present",
-    description:
-      "Spearheaded professional events, fostering an inclusive environment for 250+ engineering honors academy scholars.",
-  },
-  {
-    title: "Discussion Group Leader",
-    organization: "Rutgers Engineers Assessing Literature",
-    period: "Feb. 2024 – Present",
-    description:
-      "Led biweekly meetings with honors engineering scholars to collaboratively discuss literary works, including research papers and novels.",
-  },
-]
+import { education } from "@/lib/content"
 
 export default function EducationSection() {
   return (
@@ -79,7 +31,7 @@ export default function EducationSection() {
               Relevant Coursework
             </span>
             <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
-              {courses.map((course) => (
+              {education.courses.map((course) => (
                 <div
                   key={course}
                   className="px-2.5 py-2 rounded-lg bg-muted text-xs text-foreground text-center leading-snug flex items-center justify-center"
@@ -102,7 +54,7 @@ export default function EducationSection() {
               Organizations
             </span>
             <div className="flex flex-col gap-2">
-              {involvements.map((involvement) => (
+              {education.involvements.map((involvement) => (
                 <div key={involvement} className="px-3 py-2 bg-muted rounded-lg text-sm text-foreground">
                   {involvement}
                 </div>
@@ -115,7 +67,7 @@ export default function EducationSection() {
               Leadership
             </span>
             <div className="flex flex-col gap-4">
-              {leadership.map((role) => (
+              {education.leadership.map((role) => (
                 <div key={role.title} className="border-l-2 border-secondary pl-4">
                   <h4 className="text-sm font-semibold text-foreground">{role.title}</h4>
                   <p className="text-xs text-muted-foreground">{role.organization}</p>
