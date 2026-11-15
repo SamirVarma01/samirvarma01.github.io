@@ -886,3 +886,81 @@ body.crt :focus-visible {
     padding-left: 10px;
   }
 }
+
+/* Education */
+.edu-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr);
+  gap: clamp(28px, 5vw, 72px);
+}
+
+.kv {
+  display: grid;
+  gap: 8px;
+  margin: 0 0 30px;
+}
+
+.kv > div {
+  display: grid;
+  grid-template-columns: 90px minmax(0, 1fr);
+  gap: 12px;
+}
+
+.kv dt {
+  color: var(--crt-dim);
+}
+
+.kv dd {
+  margin: 0;
+}
+
+.lead-list {
+  display: grid;
+  gap: 18px;
+  margin: 0 0 28px;
+  padding: 0;
+  list-style: none;
+}
+
+.lead-list li {
+  padding-left: 14px;
+  border-left: 1px dashed rgba(255, 176, 0, 0.45);
+}
+
+.lead-list p {
+  margin: 0;
+}
+
+.lead-title {
+  color: var(--crt-fg);
+}
+
+.lead-org {
+  margin: 2px 0 6px !important;
+  font-size: 12px;
+  letter-spacing: 0.06em;
+  color: var(--crt-faint);
+}
+
+.lead-desc {
+  font-size: 14px;
+  color: var(--crt-dim);
+}
+
+.plain-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-size: 14px;
+}
+
+.plain-list li::before {
+  content: "- ";
+  color: var(--crt-amber);
+}
+
+@media (max-width: 860px) {
+  .edu-grid {
+    grid-template-columns: 1fr;
+  }
+}
