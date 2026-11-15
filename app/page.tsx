@@ -1,120 +1,53 @@
 "use client"
 
-import { useEffect, useRef, useState } from "react"
-import Navbar from "@/components/navbar"
-import HeroSection from "@/components/hero-section"
-import ExperienceSection from "@/components/experience-section"
-import ProjectsSection from "@/components/projects-section"
-import EducationSection from "@/components/education-section"
-import SkillsSection from "@/components/skills-section"
-import ContactSection from "@/components/contact-section"
-import Footer from "@/components/footer"
+import { useCallback, useEffect, useState } from "react"
+import CrtOverlay from "@/components/crt/crt-overlay"
+import DotMatrix from "@/components/crt/dot-matrix"
+import Hero from "@/components/crt/hero"
+import HudHeader from "@/components/crt/hud-header"
+import MenuOverlay from "@/components/crt/menu-overlay"
+import { profile } from "@/lib/content"
+import type { DotScene } from "@/lib/dot-engine"
+
+const faint = (word: string): DotScene => ({ lines: [word], intensity: 0.2, align: "right", anchor: "bottom" })
+
+/** What the dot-matrix display shows while each section is on screen. */
+const SCENES: Record<string, DotScene> = {
+  hero: { lines: profile.name.toUpperCase().split(" "), intensity: 1, align: "left", anchor: "middle" },
+}
 
 export default function Home() {
-  const [activeSection, setActiveSection] = useState("hero")
-  const sectionsRef = useRef<{ [key: string]: HTMLElement | null }>({})
+  const [menuOpen, setMenuOpen] = useState(false)
+  const [section, setSection] = useState("hero")
+  const closeMenu = useCallback(() => setMenuOpen(false), [])
 
+  // Track which section crosses the middle of the viewport.
   useEffect(() => {
-    const handleScroll = () => {
-      const scrollPosition = window.scrollY + 120
-
-      Object.entries(sectionsRef.current).forEach(([key, section]) => {
-        if (!section) return
-
-        const sectionTop = section.offsetTop
-        const sectionBottom = sectionTop + section.offsetHeight
-
-        if (scrollPosition >= sectionTop && scrollPosition < sectionBottom) {
-          setActiveSection(key)
-        }
-      })
-    }
-
-    window.addEventListener("scroll", handleScroll)
-    return () => window.removeEventListener("scroll", handleScroll)
+    const io = new IntersectionObserver(
+      (entries) => {
+        for (const e of entries) if (e.isIntersecting) setSection(e.target.id)
+      },
+      { rootMargin: "-45% 0px -45% 0px" },
+    )
+    document.querySelectorAll("[data-scene]").forEach((el) => io.observe(el))
+    return () => io.disconnect()
   }, [])
 
-  const scrollToSection = (sectionId: string) => {
-    const section = sectionsRef.current[sectionId]
-    if (section) {
-      window.scrollTo({
-        top: section.offsetTop - 64,
-        behavior: "smooth",
-      })
-    }
-  }
-
   return (
-    <main className="w-full min-h-screen bg-background">
-      <Navbar activeSection={activeSection} onNavigate={scrollToSection} />
+    <>
+      <a className="skip-link" href="#work">
+        Skip to projects
+      </a>
+      <DotMatrix scene={SCENES[section] ?? faint(section.toUpperCase())} />
+      <CrtOverlay />
+      <HudHeader onMenu={() => setMenuOpen(true)} />
+      <MenuOverlay open={menuOpen} onClose={closeMenu} />
 
-      <div className="pt-16">
-        <section
-          ref={(el) => {
-            sectionsRef.current.hero = el
-          }}
-          id="hero"
-          className="w-full max-w-6xl mx-auto px-6 pt-12 pb-20 lg:pt-20 lg:pb-28"
-        >
-          <HeroSection />
+      <main className="crt-main">
+        <section id="hero" data-scene className="crt-section crt-hero">
+          <Hero />
         </section>
-
-        <section
-          ref={(el) => {
-            sectionsRef.current.experience = el
-          }}
-          id="experience"
-          className="w-full bg-muted/60 py-20"
-        >
-          <div className="max-w-6xl mx-auto px-6">
-            <ExperienceSection />
-          </div>
-        </section>
-
-        <section
-          ref={(el) => {
-            sectionsRef.current.work = el
-          }}
-          id="work"
-          className="w-full max-w-6xl mx-auto px-6 py-20"
-        >
-          <ProjectsSection />
-        </section>
-
-        <section
-          ref={(el) => {
-            sectionsRef.current.education = el
-          }}
-          id="education"
-          className="w-full bg-muted/60 py-20"
-        >
-          <div className="max-w-6xl mx-auto px-6">
-            <EducationSection />
-          </div>
-        </section>
-
-        <section
-          ref={(el) => {
-            sectionsRef.current.skills = el
-          }}
-          id="skills"
-          className="w-full max-w-6xl mx-auto px-6 py-20"
-        >
-          <SkillsSection />
-        </section>
-
-        <section
-          ref={(el) => {
-            sectionsRef.current.contact = el
-          }}
-          id="contact"
-          className="w-full max-w-6xl mx-auto px-6 pb-20 lg:pb-28"
-        >
-          <ContactSection />
-        </section>
-      </div>
-
-      <Footer />
-    </main>
+      </main>
+    </>
   )
 }

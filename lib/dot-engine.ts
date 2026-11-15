@@ -69,7 +69,7 @@ export function createDotEngine(canvas: HTMLCanvasElement): Engine {
         g.fillRect(0, 0, size, size)
       }
       // Hot dots shift toward white, like an overdriven phosphor.
-      const mix = clamp((b - 0.75) / 0.25, 0, 1) * 0.55
+      const mix = clamp((b - 0.8) / 0.2, 0, 1) * 0.3
       const cr = Math.round(r + (255 - r) * mix)
       const cg = Math.round(gr + (255 - gr) * mix)
       const cb = Math.round(bl + (255 - bl) * mix)
@@ -92,7 +92,7 @@ export function createDotEngine(canvas: HTMLCanvasElement): Engine {
 
     const narrow = width < 760
     const family =
-      getComputedStyle(document.body).getPropertyValue("--font-sans").trim() || "Arial Black, sans-serif"
+      getComputedStyle(document.documentElement).getPropertyValue("--font-sans").trim() || "Arial Black, sans-serif"
     const maxW = cols * (narrow ? 0.9 : s.align === "center" ? 0.82 : 0.6)
     const maxH = rows * (s.anchor === "middle" ? (narrow ? 0.42 : 0.6) : 0.34)
 

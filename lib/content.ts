@@ -105,6 +105,8 @@ export const projects: Project[] = [
 export type Experience = {
   title: string
   company: string
+  /** Short shell-style name used in the hero terminal. */
+  handle: string
   location: string
   period: string
   description: string
@@ -115,6 +117,7 @@ export const experiences: Experience[] = [
   {
     title: "Software Engineering Intern",
     company: "Dropbox",
+    handle: "dropbox",
     location: "San Francisco, CA",
     period: "May 2026 – Aug. 2026",
     description:
@@ -124,6 +127,7 @@ export const experiences: Experience[] = [
   {
     title: "Data Science Intern",
     company: "AT&T",
+    handle: "at-t",
     location: "Middletown, NJ",
     period: "June 2025 – Aug. 2025",
     description:
@@ -133,6 +137,7 @@ export const experiences: Experience[] = [
   {
     title: "Software Engineering Intern",
     company: "Coco Labs",
+    handle: "coco-labs",
     location: "San Francisco, CA",
     period: "Jan. 2025 – Apr. 2025",
     description:
@@ -142,6 +147,7 @@ export const experiences: Experience[] = [
   {
     title: "Machine Learning Research Assistant",
     company: "CyberPhysical Intelligence Lab, Rutgers University",
+    handle: "rutgers-cpi-lab",
     location: "Piscataway, NJ",
     period: "June 2024 – Apr. 2025",
     description:
@@ -151,6 +157,7 @@ export const experiences: Experience[] = [
   {
     title: "Data Analyst",
     company: "NASA L'SPACE Mission Concept Academy",
+    handle: "nasa-lspace",
     location: "Tempe, AZ",
     period: "May 2024 – Aug. 2024",
     description:
